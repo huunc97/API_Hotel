@@ -11,7 +11,7 @@ try {
     $user=$_POST["user"];
     $pass=$_POST["pass"];
 
-    $stmt = $conn->prepare("select * from nguoidung where user='$user' and pass='$pass' "); 
+    $stmt = $conn->prepare("select *,((luongcoban*songaylam)+thuong) as tongluong from nguoidung where user='$user' and pass='$pass' "); 
     $stmt->execute();
     $kq=$stmt->fetchAll(PDO::FETCH_OBJ);
     //echo json_encode($kq);
@@ -21,11 +21,14 @@ try {
                 $hoten=$kq[0]->hoten_nguoidung;
                 $gioitinh=$kq[0]->gioitinh_nguoidung;
                 $ngaysinh=$kq[0]->ngaysinh_nguoidung;
-                // $songaylam=$kq[0]->songaylam;
-                // $luongcoban=$kq[0]->luongcoban;
                 $chucvu=$kq[0]->chucvu;
+                $songaylam=$kq[0]->songaylam;
+                $luongcoban=$kq[0]->luongcoban;
+                $thuong=$kq[0]->thuong;               
+                $CMND=$kq[0]->CMND;
+                $tongluong=$kq[0]->tongluong;
                 //echo $kq[0]->hoten_nguoidung;
-                echo "{errorCode:0,hoten_nguoidung:'$hoten',gioitinh_nguoidung:'$gioitinh',ngaysinh_nguoidung:'$ngaysinh',chucvu:'$chucvu'}";
+                echo "{errorCode:0,hoten_nguoidung:'$hoten',gioitinh_nguoidung:'$gioitinh',ngaysinh_nguoidung:'$ngaysinh',chucvu:'$chucvu',songaylam:'$songaylam',luongcoban:'$luongcoban',CMND:'$CMND',thuong:'$thuong',tongluong:'$tongluong'}";
              // }
          
 
