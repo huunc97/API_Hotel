@@ -6,7 +6,7 @@ $dbname="my_hotel";
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $user=$_POST["user"];
     $pass=$_POST["pass"];
@@ -28,7 +28,8 @@ try {
                 $CMND=$kq[0]->CMND;
                 $tongluong=$kq[0]->tongluong;
                 //echo $kq[0]->hoten_nguoidung;
-                echo "{errorCode:0,hoten_nguoidung:'$hoten',gioitinh_nguoidung:'$gioitinh',ngaysinh_nguoidung:'$ngaysinh',chucvu:'$chucvu',songaylam:'$songaylam',luongcoban:'$luongcoban',CMND:'$CMND',thuong:'$thuong',tongluong:'$tongluong'}";
+               echo "{errorCode:0,hoten_nguoidung:'$hoten',gioitinh_nguoidung:'$gioitinh',ngaysinh_nguoidung:'$ngaysinh',chucvu:'$chucvu',songaylam:'$songaylam',luongcoban:'$luongcoban',CMND:'$CMND',thuong:'$thuong',tongluong:'$tongluong'}";
+                //echo"{errorCode:0,message:'$hoten'}";
              // }
          
 
@@ -38,7 +39,7 @@ try {
      //}
      else
      {
-         echo "{errorCode:1,message:'that bai'}";
+         echo "{errorCode:1,message:'Đăng nhập thất bại!'}";
      }
 }
 catch(PDOException $e) {
