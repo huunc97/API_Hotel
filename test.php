@@ -1,8 +1,12 @@
 <?php
-$servername = "localhost";
+$servername = "sql204.byethost.com";
+$username = "b5_24040747";
+$password = "0988693349";
+$dbname="b5_24040747_hotel";
+/*$servername = "localhost";
 $username = "root";
 $password = "";
-$dbname="my_hotel";
+$dbname="my_hotel";*/
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 try {
@@ -13,8 +17,8 @@ try {
     $kq=$stmt->fetchAll(PDO::FETCH_OBJ);
     // set the resulting array to associative
     //$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    echo json_encode($kq);
-    //print_r($kq);
+    //echo json_encode($kq);
+    print_r($kq);
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
