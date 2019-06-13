@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname="my_hotel";
+$servername = "sql204.byethost.com";
+$username = "b5_24040747";
+$password = "0988693349";
+$dbname="b5_24040747_hotel";
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 try {
